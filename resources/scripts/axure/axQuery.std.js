@@ -1345,7 +1345,7 @@ $axure.internal(function($ax) {
 
     var _boundingRectForIds = function(childIds) {
         // Default size
-        var childrenBoundingRect = { left: childIds.length > 0 ? 9999999 : 0, top: childIds.length > 0 ? 9999999 : 0, right: 0, bottom: 0 };
+        var childrenBoundingRect = { left: childIds.length > 0 ? 99999 : 0, top: childIds.length > 0 ? 99999 : 0, right: 0, bottom: 0 };
         for (var i = 0; i < childIds.length; i++) {
             var childId = childIds[i];
             var childObj = $obj(childId);

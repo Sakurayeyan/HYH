@@ -437,8 +437,9 @@
 
             widget.cacheProp = function (prop) {
 
-                if(prop == 'x' || prop == 'y' || prop == 'width' || prop == 'height') {
-                    var boundingRect = $ax('#' + this.elementId).offsetBoundingRect(true);
+                if (prop == 'x' || prop == 'y' || prop == 'width' || prop == 'height') {
+                    // Lets ignore outer shadow size (see RP-1816)
+                    var boundingRect = $ax('#' + this.elementId).offsetBoundingRect(true, true);
                     this.xProp = boundingRect.left;
                     this.yProp = boundingRect.top;
                     this.widthProp = boundingRect.width;

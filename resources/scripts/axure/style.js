@@ -201,9 +201,11 @@
         }
         var obj = $obj(id);
         if(obj) {
+            // Lets remove 'selected' css class independently of object type (dynamic panel, layer or simple rectangle). See RP-1559
+            if (!value) $jobj(id).removeClass(SELECTED);
+
             var actionId = id;
             if ($ax.public.fn.IsDynamicPanel(obj.type) || $ax.public.fn.IsLayer(obj.type)) {
-                if(!value) $jobj(id).removeClass(SELECTED);
                 var children = $axure('#' + id).getChildren()[0].children;
                 var skipIds = new Set();
                 for(var i = 0; i < children.length; i++) {
@@ -817,7 +819,7 @@
         if(imageUrl) _applyImage(id, imageUrl, event);
 
         const style = _computeAllOverrides(id, undefined, event, $ax.adaptive.currentViewId);
-        if(!$.isEmptyObject(style) && textId) _applyTextStyle(textId, style);
+        if (!$.isEmptyObject(style) && textId) _applyTextStyle(textId, style);
 
         _updateStateClasses(
             [
@@ -1499,7 +1501,7 @@
     var _applyTextStyle = function(id, style) {
         _transformTextWithVerticalAlignment(id, function() {
             var styleProperties = _getCssStyleProperties(style);
-            $('#' + id).find('*').each(function(index, element) {
+            $('#' + id).find('*').each(function (index, element) {
                 _applyCssProps(element, styleProperties);
             });
         });

@@ -884,7 +884,15 @@ $axure.internal(function ($ax) {
                 });
 
                 $ax.placeholderManager.registerPlaceholder(elementId, dObj.placeholderText, inputJobj.attr('type') == 'password');
-                $ax.placeholderManager.updatePlaceholder(elementId, !($jobj($ax.repeater.applySuffixToElementId(elementId, '_input')).val()));
+
+                // Reset placeholders when the "Back/next to previous page" browser event was fired.
+                // It's need because we use input value with some style and js hacks as placeholder
+                // And browsers save values of input elements in their history.
+                // More info - RP-2077
+                if (!$ax.placeholderManager.isActive(elementId) && inputJobj.val() === dObj.placeholderText) {
+                    inputJobj.val('');
+                }
+                $ax.placeholderManager.updatePlaceholder(elementId, !inputJobj.val());
             }
 
             // Initialize assigned submit buttons
