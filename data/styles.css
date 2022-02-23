@@ -53,8 +53,19 @@
   font-size:10px;
   text-align:left;
 }
+.label {
+  font-size:13px;
+  text-align:left;
+}
 .paragraph {
   text-align:left;
+}
+._文本链接 {
+  color:#0000FF;
+}
+.text_link_mouse_over {
+}
+.text_link_mouse_down {
 }
 .form_hint {
   color:#999999;
