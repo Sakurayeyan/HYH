@@ -12,7 +12,11 @@
 }
 .box_1 {
 }
+._形状 {
+}
 .image {
+}
+.button {
 }
 .heading_1 {
   font-family:"Arial Normal", "Arial", sans-serif;
@@ -73,5 +77,11 @@
   color:#999999;
 }
 .form_disabled {
+}
+._文本框 {
+  text-align:left;
+}
+._文本域 {
+  text-align:left;
 }
 textarea, select, input, button { outline: none; }
