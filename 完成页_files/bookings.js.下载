@@ -1,0 +1,44 @@
+$("document").ready(function () {
+    // 数量加减
+    $(".add").click(function () {
+        var val_dom = $(this).parent().children(".AddService-box-item-num-value")
+        var val = Number(val_dom.text())
+        val_dom.addClass("text-color")
+        $(this).parent().children(".AddService-box-item-num-value").text(val + 1);
+        var input_val = Number($(this).parent().children("input").val()) + 1;
+        $(this).parent().children("input").val(input_val);
+    })
+    $(".minus").click(function () {
+        var val_dom = $(this).parent().children(".AddService-box-item-num-value")
+        var val = Number(val_dom.text())
+        if (val > 0) {
+            $(this).parent().children(".AddService-box-item-num-value").text(val - 1);
+            var input_val = Number($(this).parent().children("input").val()) - 1;
+            $(this).parent().children("input").val(input_val);
+            if (val == 1) {
+                val_dom.removeClass("text-color")
+            }
+        } else {
+            val_dom.removeClass("text-color")
+        }
+    })
+
+    // 下拉
+    $(".drop-down").click(function () {
+        $(this).toggleClass("rotate-180");
+        $(".history-box-ul").toggle();
+    })
+
+
+    //数量为0去除
+    function yanzheng() {
+        var len = $(".demand-num").length;
+        for (var i = 0; i < len; i++) {
+            if (Number($(".demand-num").eq(i).text()) == 0) {
+                $(".demand-num").eq(i).parent("li").hide()
+            }
+        }
+    }
+    yanzheng();
+
+})
