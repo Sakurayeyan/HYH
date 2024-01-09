@@ -176,14 +176,14 @@
   left:0px;
   top:0px;
   width:116px;
-  height:40px;
+  height:45px;
   background:inherit;
   background-color:rgba(255, 255, 255, 1);
   box-sizing:border-box;
   border-width:1px;
   border-style:solid;
   border-color:rgba(121, 121, 121, 1);
-  border-radius:5px;
+  border-radius:0px;
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
@@ -192,9 +192,9 @@
   border-width:0px;
   position:absolute;
   left:864px;
-  top:325px;
+  top:338px;
   width:116px;
-  height:40px;
+  height:45px;
   display:flex;
 }
 #u4 .text {
